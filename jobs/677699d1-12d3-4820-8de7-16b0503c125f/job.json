@@ -1,10 +1,10 @@
 {
-  "id": "4a98f8ee-d376-4b6c-b07e-3255279db803",
-  "name": "QBO_to_Snowflake",
-  "pipeline_id": "edf2bf1b-8e79-44b1-bc8d-e34057457de7",
+  "id": "677699d1-12d3-4820-8de7-16b0503c125f",
+  "name": "Snowflake_to_SQLnative",
+  "pipeline_id": null,
   "type": 1,
-  "source_connector": "qbo_src",
-  "destination_connector": "snowflake",
+  "source_connector": "snowflake",
+  "destination_connector": "sql_native",
   "schedule": {
     "enabled": false,
     "cron": null
@@ -16,29 +16,29 @@
   },
   "properties": {
     "enable_parallel_processing": false,
-    "worker_pool": 2,
+    "worker_pool": 1,
     "verbosity": 2,
-    "destination_schema": "PUBLIC",
+    "destination_schema": "dbo",
     "automatic_job_retry": true
   },
   "replicate_options": {
     "replicate_start_date": null,
-    "replicate_interval": 180,
+    "replicate_interval": 0,
     "replicate_interval_unit": "days",
     "snapshot_size": "1000000",
     "skip_snapshot": "false",
-    "alter_schema": true,
+    "alter_schema": false,
     "drop_table": false,
     "truncate_table_data": false,
     "table_name_prefix": "",
     "table_name_suffix": null,
-    "continue_on_error": true,
+    "continue_on_error": false,
     "deletion_behavior": "HardDelete",
     "insert_mode": null,
-    "auto_truncate_Strings": true,
+    "auto_truncate_Strings": false,
     "use_gmt_datetime": false,
-    "command_timeout": 3000,
-    "additional_options": "batchsize=100000"
+    "command_timeout": 0,
+    "additional_options": ""
   },
   "events": {
     "pre_job": null,

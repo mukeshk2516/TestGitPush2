@@ -1,0 +1,17 @@
+{
+  "id": "edf2bf1b-8e79-44b1-bc8d-e34057457de7",
+  "name": "p1",
+  "destination": "a684e116-dc71-42d7-9646-9c2c46c8fd94",
+  "schedule": {
+    "enabled": false,
+    "cron": null
+  },
+  "properties": {},
+  "alerts": {
+    "send_email_notification": false,
+    "notify_email_subject": null,
+    "notify_email_to": null,
+    "email_error_only": false
+  },
+  "labels": []
+}
