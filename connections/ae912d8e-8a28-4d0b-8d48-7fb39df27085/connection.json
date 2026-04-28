@@ -1,0 +1,22 @@
+{
+  "id": "ae912d8e-8a28-4d0b-8d48-7fb39df27085",
+  "display_name": "SQL_native",
+  "connector": {
+    "name": "SQL Server",
+    "version": "latest"
+  },
+  "properties": {
+    "Server": "localhost",
+    "Database": "newDB",
+    "Password": "SECURE:O5bEqnpp+Fjjy3EvDguRdE5xkf/lHYXzAb/4UBkssnjATLjI+8LedKe63PT/ObPR5a5UuJvZfFo2D1M=",
+    "TrustServerCertificate": "True",
+    "User": "mukesh"
+  },
+  "labels": [],
+  "settings": {
+    "verbosity": 0,
+    "use_cdata_callback_url": 0,
+    "metadata_refresh_interval": 3600,
+    "use_sync_proxy": 0
+  }
+}

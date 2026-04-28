@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "id": 969550255525859329,
+      "job_id": "4a98f8ee-d376-4b6c-b07e-3255279db803",
+      "query": "REPLICATE [CustomAccountList] SELECT * FROM [CustomAccountList]",
+      "is_active": true
+    },
+    {
+      "id": 969550282054832129,
+      "job_id": "4a98f8ee-d376-4b6c-b07e-3255279db803",
+      "query": "REPLICATE [Accounts] SELECT * FROM [Accounts]",
+      "is_active": true
+    }
+  ]
+}

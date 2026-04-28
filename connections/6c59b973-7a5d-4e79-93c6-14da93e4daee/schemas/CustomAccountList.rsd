@@ -1,0 +1,39 @@
+<api:script xmlns:api="http://apiscript.com/ns?v1">
+
+  <api:info title="CustomAccountList" description="Custom Schema for Create Account List Report." other:version="20" other:CountSupportedServerside="False">
+    <attr name="Account" xs:type="string" columnsize="2000"  readonly="true" desc="A column for Account containing String data."  other:isNotAFilter="true" />
+    <attr name="Type" xs:type="string" columnsize="2000"  readonly="true" desc="A column for Type containing String data."  other:isNotAFilter="true" />
+    <attr name="RowType" xs:type="string" columnsize="2000"  readonly="true" desc="A column for RowType containing RowType data."  other:isNotAFilter="true" />
+    <attr name="RowGroup" xs:type="string" columnsize="2000"  readonly="true" desc="A column for RowGroup containing RowGroup data."  other:isNotAFilter="true" />
+    <attr name="RowId" xs:type="integer" columnsize="11" precision="10"  readonly="true" desc="A column for RowId containing RowId data."  other:isNotAFilter="true" />
+
+    <input name="AccountType"                desc="Account type from which transactions are included in the report. This is a comma separated list (spaces omitted after/before separating comma) including: Bank, AccountsReceivable, OtherCurrentAsset, FixedAsset, OtherAsset, AccountsPayable, CreditCard, OtherCurrentLiability, LongTermLiability, Equity, Income, CostOfGoodsSold, Expense, OtherIncome, OtherExpense, NonPosting." default="Bank"/>
+    <input name="AccountStatus"              desc="The account status. Supported values include: Deleted, Not_Deleted." values="Deleted,Not_Deleted" />
+    <input name="DateMacro"                  desc="A predefined date range. Use this if you want the report to cover a standard report date range. Otherwise, use the StartDate and EndDate to cover an explicit range."  values="Today,Yesterday,This Week,This Week-to-date,Last Week,Last Week-to-date,Next Week,Next 4 Weeks,This Month,This Month-to-date,Last Month,Last Month-to-date,Next Month,This Fiscal Quarter,This Fiscal Year,This Fiscal Year-to-date,Last Fiscal Year,Last Fiscal Year-to-date,Next Fiscal Year" default="This Fiscal Year"/>
+    <input name="StartDate"                  desc="The startdate of the report. StartDate must be less than EndDate." />
+    <input name="EndDate"                    desc="The enddate of the report. EndDate must be greater than StartDate." />
+    <input name="ModDateMacro"               desc="A predefined report account modification date range. Use if you want the report to cover a standard report date range when accounts were modified; otherwise, use the StartModDate and EndModDate to cover an explicit report date range."  values="Today,Yesterday,This Week,This Week-to-date,Last Week,Last Week-to-date,Next Week,Next 4 Weeks,This Month,This Month-to-date,Last Month,Last Month-to-date,Next Month,This Fiscal Quarter,This Fiscal Year,This Fiscal Year-to-date,Last Fiscal Year,Last Fiscal Year-to-date,Next Fiscal Year" default="This Fiscal Year"/>
+    <input name="StartModDate"               desc="The startdate of which accounts were modified. StartModDate must be less than EndModDate." />
+    <input name="EndModDate"                 desc="The enddate of which accounts were modified. EndModDate must be greater than StartModDate." />
+    <input name="CreateDateMacro"            desc="A predefined account create date range. Use this if you want the report to cover a standard date range when accounts were created. Otherwise, use the StartCreateDate and EndCreateDate to cover an explicit range."  values="Today,Yesterday,This Week,This Week-to-date,Last Week,Last Week-to-date,Next Week,Next 4 Weeks,This Month,This Month-to-date,Last Month,Last Month-to-date,Next Month,This Fiscal Quarter,This Fiscal Year,This Fiscal Year-to-date,Last Fiscal Year,Last Fiscal Year-to-date,Next Fiscal Year" default="This Fiscal Year"/>
+    <input name="StartCreateDate"            desc="The startcreatedate of account creation to include in the report. StartCreateDate must be less than EndCreateDate." />
+    <input name="EndCreateDate"              desc="The endcreatedate account creation to include in the report. EndCreateDate must be greater than StartCreateDate." />
+    <input name="SortBy"                     desc="The column type used in sorting report rows. Specify one of the Columns from the Columns input." />
+    <input name="SortOrder"                  desc="The sort ordering." values="ascend,descend" default="ascend"/>
+
+  </api:info>
+
+  <!-- Table specific information -->
+  <api:set attr="reporttype" value="AccountList"/>
+  <api:set attr="useJson" value="true" />
+
+<!-- Operation definitions -->
+<api:script method="GET">
+
+  <api:set attr="_input.Columns" value="account_name,account_type"/>
+  <api:call op="quickbooksonlineadoOnlineExecuteReport">
+    <api:push />
+  </api:call>
+</api:script>
+
+</api:script>
