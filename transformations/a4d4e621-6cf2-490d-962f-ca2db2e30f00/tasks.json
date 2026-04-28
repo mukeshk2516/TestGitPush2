@@ -1,0 +1,10 @@
+{
+  "tasks": [
+    {
+      "id": 969556628502351873,
+      "job_id": "a4d4e621-6cf2-490d-962f-ca2db2e30f00",
+      "query": "Delete from emp where empid = 101",
+      "is_active": true
+    }
+  ]
+}
